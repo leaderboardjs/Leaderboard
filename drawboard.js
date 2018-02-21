@@ -52,7 +52,7 @@ function checkColumns(array) {
         }
     })
     row  += "<span></span><span></span>"
-    currentRow += "<div><button class='edit'>EDIT</button><button class='delete'>DELETE</button></div>"
+    currentRow += "<div class='button-div'><button class='edit'>EDIT</button><button class='delete'>DELETE</button></div>"
     addFirstLine(row, currentRow);
 }
 

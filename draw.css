@@ -42,7 +42,7 @@
     font-size: 14px;
     text-align: center;
     color: #fff;
-    background-color: rgb(31, 90, 138);
+    background-color: rgb(51, 52, 53);
     border-radius: 15px;
 }
 
@@ -123,5 +123,23 @@
 }
 
 body {
-    background-color: #555657;
+    background-color: #5d5e5f;
+}
+
+.edit, .delete {
+    width: 30%;
+    background-color: #3e4041;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 12px;
+    align-items: center;
+    font-weight: bold;
+}
+
+.button-div {
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
