@@ -79,3 +79,7 @@ function addOneRow() {
     let addOneRow = document.getElementsByClassName("member")[0].innerHTML;
     addRow(1, addOneRow);
 }
+
+let edit = document.getElementsByClassName("edit")[0];
+
+edit.addEventListener("click", function() {})
