@@ -9,9 +9,7 @@ window.onload = function() {
 
 
 function addRow(memberinput, currentRow) {
-        let row = "<span id='name'></span><span id='score'></span>";
-
-
+       
         if (memberinput < 1) {
             return;
         }
@@ -20,7 +18,7 @@ function addRow(memberinput, currentRow) {
     
         div.className = 'member';
    
-        div.innerHTML = row + currentRow;
+        div.innerHTML = currentRow;
         
         document.getElementById('background').appendChild(div);
         return addRow(memberinput - 1, currentRow);
@@ -34,7 +32,7 @@ function addRow(memberinput, currentRow) {
 
 
 function checkColumns(array) {
-    let currentRow = "";
+    let currentRow = "<span id='name'></span><span id='score'></span>";
     let row = "<span>Name Surname</span><span>Score</span>";
         array = Array.from(array);
 
@@ -78,6 +76,6 @@ let newMember = document.getElementsByClassName("addButton")[0];
 newMember.addEventListener("click", addOneRow);
 
 function addOneRow() {
-    let addOneRow = document.getElementsByClassName("member")[0].outerHTML;
+    let addOneRow = document.getElementsByClassName("member")[0].innerHTML;
     addRow(1, addOneRow);
 }
