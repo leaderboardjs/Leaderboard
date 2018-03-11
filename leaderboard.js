@@ -9,13 +9,19 @@ let boardinput = document.getElementById("boardinput");
 let memberinput = document.getElementById("memberinput");
 let checkinput = document.getElementById("checkinput");
 
-window.onload = function() {
-    let a = document.createElement('a');
-    let boardname = localStorage.getItem('boardname');
-    a.innerHTML = boardname;
-    document.getElementsByClassName('boards')[0].appendChild(a);
-}
+let arr = JSON.parse(localStorage.getItem('boardname')) || [];
 
+window.onload = function() {
+
+    if (arr !== []) {
+        arr.map(function(item) {
+            let a = document.createElement('a');
+            a.innerHTML = item;
+            document.getElementsByClassName('boards')[0].appendChild(a);
+            a.addEventListener("click", createBoard);
+        })
+    }
+}
 
 plusButton.addEventListener("click", function () {
     document.getElementById("sign").style.display = 'flex';
@@ -67,12 +73,19 @@ function checkFields() {
                     checkArray.push(check.indexOf(item));
                 }
             });
-            localStorage.setItem('checked', checkArray);
+            localStorage.setItem('checked', JSON.stringify(checkArray));
             localStorage.setItem('count', number.value);
-            localStorage.setItem('boardname', boardname.value);
-          
-           createBoard();
-           return;
+            arr = JSON.parse(localStorage.getItem('boardname')) || [];
+            if (arr.includes(boardname.value)) {
+                boardinput.innerHTML = "* Such name already exists!";
+                return;
+            } else {
+                arr.push(boardname.value);
+                localStorage.setItem('boardname', JSON.stringify(arr));
+               createBoard();
+               return;
+            }
+            
        } 
        
        if (every) {
@@ -88,6 +101,8 @@ function checkFields() {
            
        } 
    }
+
+
 
 function createBoard() {
  

@@ -116,6 +116,7 @@ input.check {
 	display: block;
 	font-family: Arial, Helvetica, sans-serif;	
 	font-size: 50px;
+	cursor: pointer;
 }
 
 .boards {

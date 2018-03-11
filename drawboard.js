@@ -1,6 +1,6 @@
 window.onload = function() {
     
-    let array = localStorage.getItem('checked');
+    let array = JSON.parse(localStorage.getItem('checked'));
    
     
     checkColumns(array);
@@ -34,19 +34,18 @@ function addRow(memberinput, currentRow) {
 function checkColumns(array) {
     let currentRow = "<span id='name'></span><span id='score'></span>";
     let row = "<span>Name Surname</span><span>Score</span>";
-        array = Array.from(array);
 
     array.map(function(item) {
-        if (item === "0") {
+        if (item === 0) {
             row += "<span>Number of solved problems</span>";
             currentRow += "<span class='problems'></span>"
         }
-        if (item === "1") {
+        if (item === 1) {
             row += "<span>Number of read pages</span>";
             currentRow += "<span class='pages'></span>"
         }
 
-        if (item === "2") {
+        if (item === 2) {
             row += "<span>Spent time</span>";
             currentRow += "<span class='spent-time'></span>"
         }
@@ -58,7 +57,8 @@ function checkColumns(array) {
 
 
 function addFirstLine(row, currentRow) {
-    let boardname = localStorage.getItem('boardname');
+    let boardname = JSON.parse(localStorage.getItem('boardname'));
+    boardname = boardname[boardname.length - 1];
     let number = localStorage.getItem('count');
     let div = document.getElementById("mainRow");
     
@@ -82,4 +82,4 @@ function addOneRow() {
 
 let edit = document.getElementsByClassName("edit")[0];
 
-edit.addEventListener("click", function() {})
+/*edit.addEventListener("click", function() {})*/
