@@ -9,7 +9,7 @@ let boardinput = document.getElementById("boardinput");
 let memberinput = document.getElementById("memberinput");
 let checkinput = document.getElementById("checkinput");
 
-let arr = JSON.parse(localStorage.getItem('boardname')) || [];
+let arr = JSON.parse(localStorage.getItem(boardname)) || [];
 
 window.onload = function() {
 
@@ -23,12 +23,12 @@ window.onload = function() {
     }
 }
 
-plusButton.addEventListener("click", function () {
+plusButton.addEventListener("click", function() {
     document.getElementById("sign").style.display = 'flex';
 
 });
 
-span.addEventListener("click", function () {
+span.addEventListener("click", function() {
     modal.style.display = "none";
     clearAllFields();
 });
@@ -54,63 +54,57 @@ function clearAllFields() {
 
 save.onclick = function(event) {
     event.preventDefault();
-  };
+};
 
 save.addEventListener("click", checkFields);
 
 function checkFields() {
-    
-     check = Array.from(check);
-   
-     let every = check.every(function(currentCheck) {
-           return currentCheck.checked === false;
-       })
-   
-       if (!every && boardname.value !== "" && number.value !== "") {
-           let checkArray = [];
-            check.map(function(item) {
-                if (item.checked === true) {
-                    checkArray.push(check.indexOf(item));
-                }
-            });
-            localStorage.setItem('checked', JSON.stringify(checkArray));
-            localStorage.setItem('count', number.value);
-            arr = JSON.parse(localStorage.getItem('boardname')) || [];
-            if (arr.includes(boardname.value)) {
-                boardinput.innerHTML = "* Such name already exists!";
-                return;
-            } else {
-                arr.push(boardname.value);
-                localStorage.setItem('boardname', JSON.stringify(arr));
-               createBoard();
-               return;
+
+    check = Array.from(check);
+
+    let every = check.every(function(currentCheck) {
+        return currentCheck.checked === false;
+    })
+
+    if (!every && boardname.value !== "" && number.value !== "") {
+        let checkArray = [];
+        check.map(function(item) {
+            if (item.checked === true) {
+                checkArray.push(check.indexOf(item));
             }
-            
-       } 
-       
-       if (every) {
-           checkinput.innerHTML = "* Please check at least one checkbox!";
-       } 
-       
-       if (boardname.value === "") {
-           boardinput.innerHTML = "* Please insert leaderboard name";
-       } 
-       
-       if (number.value === "") {
-           memberinput.innerHTML = "* Please insert count of members";
-           
-       } 
-   }
+        });
+        localStorage.setItem('checked', JSON.stringify(checkArray));
+        localStorage.setItem('count', number.value);
+        arr = JSON.parse(localStorage.getItem(boardname)) || [];
+        if (arr.includes(boardname.value)) {
+            boardinput.innerHTML = "* Such name already exists!";
+            return;
+        } else {
+            arr.push(boardname.value);
+            localStorage.setItem('boardname', JSON.stringify(arr));
+            createBoard();
+            return;
+        }
 
+    }
 
+    if (every) {
+        checkinput.innerHTML = "* Please check at least one checkbox!";
+    }
 
-function createBoard() {
- 
-      window.location.href = "input.html";
+    if (boardname.value === "") {
+        boardinput.innerHTML = "* Please insert leaderboard name";
+    }
+
+    if (number.value === "") {
+        memberinput.innerHTML = "* Please insert count of members";
+
+    }
 }
 
 
 
+function createBoard() {
 
-
-
+    window.location.href = "input.html";
+}
