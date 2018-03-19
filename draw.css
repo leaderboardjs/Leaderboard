@@ -147,13 +147,15 @@ body {
 .edit,
 .delete {
     width: 30%;
-    background-color: #3e4041;
+    background-color: #8ad174;
+    color: #fff;
     border: none;
     border-radius: 3px;
     color: white;
-    font-size: 12px;
+    font-size: 15px;
     align-items: center;
     font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .button-div {
