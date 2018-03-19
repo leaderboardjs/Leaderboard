@@ -68,7 +68,7 @@ function createFields() {
                         document.getElementsByClassName("surname")[i].innerText = inputSurname.value;
                         document.getElementsByClassName("problems")[i].innerText = inputSolvedTasks.value;
                         document.getElementsByClassName("pages")[i].innerText = inputReadPages.value;
-                        //document.getElementsByClassName("spent-time")[i].innerText = inputSpentTime.value;
+                        document.getElementsByClassName("spent-time")[i].innerText = inputSpentTime.value;
                         item.style.display = 'flex';
                      } else {
                         item.style.display = 'none';
